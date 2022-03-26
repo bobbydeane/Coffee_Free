@@ -1,7 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from .models import Post
 from .forms import CommentForm
+from django.http import HttpResponseRedirect
 
 class PostList(generic.ListView): #will inherit generic list view
     model = Post
@@ -63,3 +64,15 @@ class PostDetail(View):
                 "comment_form": CommentForm()
             },
         )
+
+class PostLike(View):
+
+    def post(self, request, slug):
+        post = get_object_or_404(Post, slug=slug) # get our post
+
+        if post.likes.filter(id=request.user.id).exists(): # if statement to toggle our like
+            post.likes.remove(request.user)
+        else:
+            post.likes.add(request.user)
+        
+        return HttpResponseRedirect(reverse('post_detail', args=[slug])) # reload page when we like/unlike post

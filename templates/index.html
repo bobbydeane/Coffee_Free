@@ -38,6 +38,17 @@
           </p>
           <a href="{% url 'post_detail' post.slug  %}" class="stretched-link">Continue reading</a>
         </div>
+
+        <div class="col-1">
+
+          <!-- The number of likes goes before the closing strong tag -->
+          <strong class="text-secondary"><i class="far fa-heart"></i> {{ post.number_of_likes }} </strong>
+          {% with comments.count as total_comments %}
+          <strong class="text-secondary"><i class="far fa-comments"></i>
+              <!-- Our total_comments variable goes before the closing strong tag -->
+              {{ total_comments }}</strong>
+          {% endwith %}
+      </div>
         
       </div>
       <div class="col-auto d-none d-lg-block">
