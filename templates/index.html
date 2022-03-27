@@ -4,7 +4,7 @@
 
 <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
     <div class="col-md-6 px-0">
-      <h1 class="display-4 fst-italic">Join our community and quit Caffeine today.</h1>
+      <h1 class="display-4 fst-italic"Join our community and quit Caffeine today.</h1>
       <p class="lead my-3">Multiplee lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
       <p class="lead mb-0"><a href="#" class="text-white fw-bold">Continue reading...</a></p>
     </div>
@@ -39,7 +39,7 @@
           <a href="{% url 'post_detail' post.slug  %}" class="stretched-link">Continue reading</a>
         </div>
 
-        <div class="col-1">
+        <div class="row-1">
 
           <!-- The number of likes goes before the closing strong tag -->
           <strong class="text-secondary"><i class="far fa-heart"></i> {{ post.number_of_likes }} </strong>
@@ -49,6 +49,7 @@
               {{ total_comments }}</strong>
           {% endwith %}
       </div>
+      
         
       </div>
       <div class="col-auto d-none d-lg-block">
