@@ -47,7 +47,7 @@
                                 {% else %}
 
                                 <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like">
-                                    <i class="fa-regular fa-coffee-bean"></i>
+                                    <i class="fa-regular fa-coffee-bean">></i>
                                 </button>
 
                                 {% endif %}
@@ -56,13 +56,12 @@
                             </form>
                             {% else %}
 
-                            <span class="text-secondary"><i class="fa-regular fa-coffee-bean"></i>
+                            <span class="text-secondary"><i class="far fa-heart"></i>
                             {% endif %}
                             <span class="text-secondary"> {{ post.number_of_likes }}</span>
 
                         </strong>
-                        <!-- The number of likes goes before the closing strong tag -->
-                        <strong class="text-secondary"><i class="far fa-heart"></i> {{ post.number_of_likes }} </strong>
+
                     </div>
                     <div class="col-1">
                         {% with comments.count as total_comments %}

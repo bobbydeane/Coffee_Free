@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 # Import Cloudinary field for or featured image
 from cloudinary.models import CloudinaryField
+from django.urls import reverse
 
 
 # Create a tupple for our status
@@ -29,6 +30,10 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    # User submit data to the Post Model
+    def get_absolute_url(self):
+        return reverse('post_detail', args=(str(self.id)) )
 
     def number_of_likes(self):
         return self.likes.count()

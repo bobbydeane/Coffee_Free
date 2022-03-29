@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
+from django.views.generic.edit import CreateView
 from .models import Post
 from .forms import CommentForm
 from django.http import HttpResponseRedirect
@@ -77,3 +78,16 @@ class PostLike(View):
             post.likes.add(request.user)
         
         return HttpResponseRedirect(reverse('post_detail', args=[slug])) # reload page when we like/unlike post
+
+
+
+class SubmitPost(CreateView):
+    model = Post
+    template_name = 'submit.html'
+    fields = ('title', 'content', 'excerpt', 'featured_image')
+    
+    def post(self, request, slug, *args, **kwargs):
+        queryset = Post.objects.filter(status=1)
+        post = get_object_or_404(queryset, slug=slug)
+
+
