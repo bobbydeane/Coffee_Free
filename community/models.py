@@ -3,6 +3,9 @@ from django.contrib.auth.models import User
 # Import Cloudinary field for or featured image
 from cloudinary.models import CloudinaryField
 from django.urls import reverse
+# Import slugify to generate slugs from strings
+from django.utils.text import slugify 
+
 
 
 # Create a tupple for our status
@@ -23,6 +26,12 @@ class Post(models.Model):
     excerpt = models.TextField(blank=True)
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(User, related_name='user_post_likes', blank=True)
+
+    # slugify to auto save the slug from title
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(Post, self).save(*args, **kwargs)
     
     # Helper class to order out posts via created on field
     class Meta:
@@ -33,7 +42,7 @@ class Post(models.Model):
 
     # User submit data to the Post Model
     def get_absolute_url(self):
-        return reverse('post_detail', args=(str(self.id)) )
+       return reverse('home')
 
     def number_of_likes(self):
         return self.likes.count()
