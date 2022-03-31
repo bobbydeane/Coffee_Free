@@ -5,10 +5,19 @@
     <div class="container">
         <div class="row g-0">
             <div class="col-md-6 masthead-text">
-                <!-- Post title goes in these h1 tags -->
+                
                 <h1 class="post-title">{{ post.title }}</h1>
-                <!-- Post author goes before the | the post's created date goes after -->
+                
+                <!-- Only the Author can delete/Edit a post -->
+                {% if user == post.author %}
+
                 <p class="post-subtitle">{{ post.author }} | {{ post.created_on }} | <small><a href="{% url 'edit_post' post.slug %}">Edit</a></small> | <small><a href="{% url 'delete_post' post.slug %}">Delete</a></small></p>
+                
+                {% else %}
+
+                <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
+
+                {% endif %}
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
                 <!-- The featured image URL goes in the src attribute -->

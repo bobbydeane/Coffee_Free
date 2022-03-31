@@ -32,6 +32,7 @@ class Post(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super(Post, self).save(*args, **kwargs)
+
     
     # Helper class to order out posts via created on field
     class Meta:
