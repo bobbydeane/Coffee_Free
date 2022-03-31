@@ -10,20 +10,22 @@
     </div>
 </div>
 
+
 <div class="row mb-2">
-  {% for post in post_list %}
   
+  {% for post in post_list %}
   <div class="col-md-12">
+    
     <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
       <div class="col p-4 d-flex flex-column position-static">
         <strong class="d-inline-block mb-2 text-success">{{ post.created_on }}</strong>
-        <h3 class="mb-0">{{ post.title }}</h3>
-        <div class="mb-1 text-muted">
-          <p>
-            {{ post.excerpt }}
-          </p>
-          <a href="{% url 'post_detail' post.slug  %}" class="stretched-link">Continue reading</a>
-        </div>
+          <h3 class="mb-0">{{ post.title }}</h3>
+          <div class="mb-1 text-muted">
+            <p>
+              {{ post.excerpt }}
+            </p>
+            <a href="{% url 'post_detail' post.slug  %}" class="stretched-link">Continue reading</a>
+          </div>
 
         <div class="row-1">
 
@@ -34,7 +36,7 @@
               <!-- Our total_comments variable goes before the closing strong tag -->
               {{ total_comments }}</strong>
           {% endwith %}
-      </div>
+        </div>
       
         
       </div>
