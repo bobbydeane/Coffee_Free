@@ -16,6 +16,11 @@ class PostList(generic.ListView):  # will inherit generic list view
     paginate_by = 6  # introduce page navigation after 1 posts
 
 
+#Codemy Category tuturial- function to return post.Category
+def CategoryView(request, cats):
+    category_posts = Post.objects.filter(category=cats)
+    return render(request, 'categories.html', {'cats':cats, 'category_posts':category_posts})
+
 class PostDetail(View):
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)

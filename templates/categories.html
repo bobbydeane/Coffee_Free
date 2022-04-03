@@ -2,38 +2,21 @@
 
 {% block content %}
 <main class="container">
-<div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
-    <div class="col-md-6 px-0">
-      <h1 class="display-4 fst-italic">Join our community and quit Caffeine today.</h1>
-      <p class="lead my-3">Multiplee lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
-      <p class="lead mb-0"><a href="#" class="text-white fw-bold">Continue reading...</a></p>
-    </div>
-</div>
+{% if cats == '1' %}
+<h1>Science.</h1>
 
-<div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"">
+{% elif  cats == '6' %}
+<h1>User Success Story.</h1>
 
-  <div class="col-md-8">
+{% else %}
 
+<h1>Categories.{{ cats }}</h1>
 
-  </div>
+{% endif %}
 
-  <div class="col-md-4">
-    <ul>
-      {% for post in post_list %}
-      <li><a href="{% url 'category' post.category.id  %}">{{ post.category }}</a></li>
+{% for category in category_posts %}
 
-
-      {%endfor%}
-    </ul>
-
-  </div>
-</div>
-
-
-<div class="row mb-2">
-  
-  {% for post in post_list %}
-  <div class="col-md-12">
+<div class="col-md-12">
     
     <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
       <div class="col p-4 d-flex flex-column position-static">
@@ -67,7 +50,12 @@
   </div>
 </div>
 
-{%endfor%}
+{% endfor %}
+
+
+
+
+
 
 
 {%endblock%}
