@@ -15,17 +15,23 @@
     </div>
 </div>
 
+ {% if user.is_authenticated %}
 <h1>Edit your Post</h1>
 <div>
 
     <form method="POST" novalidate>
         {% csrf_token %}
+        
         {{ form|crispy }}
         <button type="submit" class="btn btn-success">Update</button>
       </form>
 
 </div>
 
+{% else %}
 
+<h3>Please <a class="link-secondary" href="{% url 'account_login' %}">Log In</output></a> to edit your post. </h3> 
+
+{% endif %}
 
 {% endblock %}

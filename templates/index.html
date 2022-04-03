@@ -22,7 +22,7 @@
           <h3 class="mb-0">{{ post.title }}</h3>
           <div class="mb-1 text-muted">
             <p>
-              {{ post.excerpt }}
+              {{ post.excerpt | safe }}
             </p>
             <a href="{% url 'post_detail' post.slug  %}" class="stretched-link">Continue reading</a>
           </div>

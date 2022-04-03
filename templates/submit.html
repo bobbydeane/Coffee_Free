@@ -13,6 +13,8 @@
     </div>
 </div>
 
+{% if user.is_authenticated %}
+
 <div>
 
     <form method="POST" novalidate>
@@ -22,6 +24,15 @@
       </form>
 
 </div>
+
+{% else %}
+
+<h3>Please <a class="link-secondary" href="{% url 'account_login' %}">Log In</output></a> to edit your post. </h3> 
+
+{% endif %}
+
+
+
 
 
 
