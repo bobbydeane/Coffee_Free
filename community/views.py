@@ -15,6 +15,15 @@ class PostList(generic.ListView):  # will inherit generic list view
     template_name = "index.html"  # view will render our Html file
     paginate_by = 6  # introduce page navigation after 1 posts
 
+    # Codemy tutorial - create categories for navbar from Category Model
+    def get_context_data(self, *args, **kwargs):
+        cat_menu = Category.objects.all()
+        context = super(PostList, self).get_context_data(*args, **kwargs)
+        context["cat_menu"] = cat_menu
+        return context
+
+
+
 
 #Codemy Category tuturial- function to return post.Category
 def CategoryView(request, cats):

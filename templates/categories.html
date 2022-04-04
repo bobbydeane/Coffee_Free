@@ -5,6 +5,16 @@
 {% if cats == '1' %}
 <h1>Science.</h1>
 
+{% elif  cats == '2' %}
+<h1>News.</h1>
+
+{% elif  cats == '3' %}
+<h1>Caffeine Alternatives.</h1>
+
+{% elif  cats == '4' %}
+<h1>Recipes.</h1>
+
+
 {% elif  cats == '6' %}
 <h1>User Success Story.</h1>
 
@@ -14,7 +24,7 @@
 
 {% endif %}
 
-{% for category in category_posts %}
+{% for post in category_posts %}
 
 <div class="col-md-12">
     
@@ -47,7 +57,7 @@
 
       </div>
     </div>
-  </div>
+
 </div>
 
 {% endfor %}
