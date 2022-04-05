@@ -15,7 +15,7 @@
     </div>
 </div>
 
-{% if user.is_authenticated %}
+{% if user == post.author %}
 
 <h1>Delete your Post</h1>
 <br/><br/>
@@ -35,7 +35,7 @@
 
 {% else %}
 
-<h3>Please <a class="link-secondary" href="{% url 'account_login' %}">Log In</output></a> to edit your post. </h3> 
+<h3>Please <a class="link-secondary" href="{% url 'account_login' %}">Log In</output></a> to Delete your post. </h3> 
 
 {% endif %}
 

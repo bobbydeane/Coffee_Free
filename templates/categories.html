@@ -20,7 +20,12 @@
 
 {% else %}
 
-<h1>Categories.{{ cats }}</h1>
+<h1>Category not found</h1>
+
+<p>
+  Please return to the <a class="blog-header-logo text-dark" href="{% url 'home' %}">Homepage</a>.
+</p>
+
 
 {% endif %}
 

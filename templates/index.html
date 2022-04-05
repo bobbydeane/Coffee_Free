@@ -18,34 +18,43 @@
       <p class="lead my-3">Multiplee lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
       <p class="lead mb-0"><a href="#" class="text-white fw-bold">Continue reading...</a></p>
     </div>
+    <div class="col-md-2">
+      <ul>
+      
+        {% for post in post_list %}
+        {% ifchanged post.category %}
+        <li><a href="{% url 'category' post.category.id  %}">{{ post.category }}</a></li>
+        
+        {% endifchanged %}
+        
+  
+        {%endfor%}
+        
+      </ul>
+  
+    </div>
 </div>
 
 <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"">
 
   <div class="col-md-10">
     
-    <div class="col-md-2">
-      <ul>
-        <li><a href="#">Science</a></li>
-        {% for item in cat_menu %}
-        <li><a href="#">{{ item }}</a></li>
-        
-        {%endfor%}
-      </ul>
-  
-    </div>
-
+    
 
   </div>
 
   <div class="col-md-2">
     <ul>
+      
       {% for post in post_list %}
+      {% ifchanged post.category %}
       <li><a href="{% url 'category' post.category.id  %}">{{ post.category }}</a></li>
       
-
+      {% endifchanged %}
+      
 
       {%endfor%}
+      
     </ul>
 
   </div>
@@ -59,7 +68,13 @@
     
     <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
       <div class="col p-4 d-flex flex-column position-static">
-        <strong class="d-inline-block mb-2 text-success">{{ post.category }} | {{ post.created_on }} |</strong>
+        <strong class="d-inline-block mb-2 text-success">{{ post.category }} | {{ post.created_on }} | 
+          {% if user == post.author %}
+
+          <small><a href="{% url 'edit_post' post.slug %}">Edit</a></small> | <small><a href="{% url 'delete_post' post.slug %}">Delete</a></small>
+          {% endif %}
+
+        </strong>
           <h3 class="mb-0">{{ post.title }}</h3>
           <div class="mb-1 text-muted">
             <p>

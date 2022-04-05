@@ -15,7 +15,9 @@
     </div>
 </div>
 
- {% if user.is_authenticated %}
+<!--Prevent anyone from editing the Post-->
+ {% if user == post.author %}
+
 <h1>Edit your Post</h1>
 <div>
 
