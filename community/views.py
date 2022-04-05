@@ -2,9 +2,11 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.views.generic import CreateView, UpdateView, DeleteView
 from .models import Post, Category
-from .forms import CommentForm
+from .forms import CommentForm, SubmitPostForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
+from django.contrib.auth.models import User
+
 
 
 class PostList(generic.ListView):  # will inherit generic list view
@@ -13,7 +15,7 @@ class PostList(generic.ListView):  # will inherit generic list view
          "category", "-created_on" 
     )  # status =1 filters by published posts / ordered by oldest first
     template_name = "index.html"  # view will render our Html file
-    paginate_by = 6  # introduce page navigation after 1 posts
+    paginate_by = 10  # introduce page navigation after 10 posts
 
 
     # Codemy tutorial - create categories for navbar from Category Model
@@ -109,8 +111,10 @@ class PostLike(View):
 
 class SubmitPost(CreateView):
     model = Post
+    form_class = SubmitPostForm
     template_name = "submit.html"
-    fields = ("title", "author", "category", "content", "excerpt", "featured_image")
+    # fields = ("title", "author", "category", "content", "excerpt", "featured_image")
+
 
 
 class EditPost(UpdateView):
