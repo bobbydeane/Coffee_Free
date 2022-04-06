@@ -17,7 +17,7 @@
 
 <div class="form-group">
 
-    <form method="POST" novalidate>
+    <form method="POST" enctype="multipart/form-data" novalidate>
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="btn btn-success">Submit Post</button>

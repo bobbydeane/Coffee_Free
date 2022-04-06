@@ -8,11 +8,6 @@
         <div class="row g-0">
             <div class="col-md-6 masthead-text">
 
-                {% with post.category.id as cat_list %}
-
-                {{ cat_list }}
-
-                {% endwith %}
                 
                 <h1 class="post-title">{{ post.title }}</h1>
 
@@ -59,24 +54,22 @@
                                 {% csrf_token %}
                                 {% if liked %}
 
-                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like">
-                                    <i class="fa-solid fa-coffee-bean"></i>
-                                </button>
+                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i class="fas fa-heart"></i></button>
 
                                 {% else %}
 
                                 <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like">
-                                    <i class="fa-regular fa-coffee-bean">></i>
+                                    <i class="far fa-heart"></i>
                                 </button>
 
                                 {% endif %}
-
-
                             </form>
+                            
                             {% else %}
 
                             <span class="text-secondary"><i class="far fa-heart"></i>
                             {% endif %}
+
                             <span class="text-secondary"> {{ post.number_of_likes }}</span>
 
                         </strong>
