@@ -85,8 +85,12 @@
     </div>
     <div class="col-md-2">
       <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        {% if "placeholder" in post.featured_image.url %}
+        <img class="img-fluid" src="https://res.cloudinary.com/bobdean/image/upload/v1649273070/hwglqcxsx3j3v3qn6ovx.jpg" alt="caffeine free placeholder">
+        {% else %}
+
         <img class="img-fluid" src="{{ post.featured_image.url }}" alt="{{ post.featured_image.url.name }}">
-      
+        {% endif %}
       </div>
     </div>
 
