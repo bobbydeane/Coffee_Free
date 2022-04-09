@@ -20,8 +20,12 @@
     <form method="POST" enctype="multipart/form-data" novalidate>
         {% csrf_token %}
         {{ form.as_p }}
+
+        <p><strong>Please note, your post will appear on the site as soon as it has been approved by the Admin.</strong></p>
         <button type="submit" class="btn btn-success">Submit Post</button>
-      </form>
+        <!-- Button trigger modal -->
+    </form>
+
 
 <!--JS assigns our Username to the hidden author form field-->
       <script>

@@ -12,39 +12,48 @@
 
 
 <main class="container">
-<div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
-    <div class="col-md-6 px-0">
+  <div class=" row p-4 p-md-5 mb-4 text-black rounded bg-white">
+
+    <div class="col-md-8 px-0">
       <h1 class="display-4 fst-italic">Join our community and quit Caffeine today.</h1>
-      <p class="lead my-3">Multiplee lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
-      <p class="lead mb-0"><a href="#" class="text-white fw-bold">Continue reading...</a></p>
+      <p class="lead my-3">Do you want a better nights sleep? Do you often feel anxious? Do you need that cup of Coffee first thing in the morning to function?</p>
+      <p class="lead my-3">Whether you want to cut back on the daily coffees or quit Caffeine altogether. The Caffeine Free Community can offer you support and inspiration as you try to elimate Caffeine from your life.</p>
     </div>
     
-</div>
-
-<div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"">
-
-  <div class="col-md-10">
+    <div class="col-md-2 p-md-5 px-0 ">
+      <img class="background-image" src="https://res.cloudinary.com/bobdean/image/upload/v1649533640/coffee_jjtidr.jpg" alt="Coffee Bean">
+    </div>
     
-    
+  </div>
+
+  <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative text-white rounded bg-dark">
+
+    <div class="col-md-8 p-4 p-md-4 mb-4">
+      <h2>Browse the different topics and Discussions.</h2>
+        <p class="lead my-3">All of our posts come from our community. <br> If you are in the need for some Caffeine Free Recipes, browsing for a related News Article, or looking for Inspiration to Quit.</p>
+        <p class="lead my-3">Become a member today and join our community.  <a href="{% url 'account_signup' %}">Sign Up.</a></p>
+    </div>
+
+    <div class="col-md-2 cat-font p-2 p-md-2 mb-2 mt-2">
+
+      <ul>
+      
+        {% for post in post_list %}
+        {% ifchanged post.category %}
+        <li><a href="{% url 'category' post.category.id  %}">{{ post.category }}</a></li>
+      
+        {% endifchanged %}
+      
+
+        {%endfor%}
+      
+      </ul>
+    </div>
+
 
   </div>
 
-  <div class="col-md-2">
-    <ul>
-      
-      {% for post in post_list %}
-      {% ifchanged post.category %}
-      <li><a href="{% url 'category' post.category.id  %}">{{ post.category }}</a></li>
-      
-      {% endifchanged %}
-      
-
-      {%endfor%}
-      
-    </ul>
-
-  </div>
-</div>
+</main>
 
 <div class="row mb-2">
   
