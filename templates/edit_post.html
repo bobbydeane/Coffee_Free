@@ -7,18 +7,18 @@
 {% block content %}
 
 <main class="container">
-<div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
-    <div class="col-md-6 px-0">
-      <h1 class="display-4 fst-italic">Join our community and quit Caffeine today.</h1>
-      <p class="lead my-3">Multiplee lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
-      <p class="lead mb-0"><a href="#" class="text-white fw-bold">Continue reading...</a></p>
+  <div class="row p-4 p-md-5 mb-4 text-white rounded backround-color  bg-dark">
+
+    <div class="col-md-8 px-0">
+      <h1 class="display-4 fst-italic">Edit Your Post</h1>
     </div>
-</div>
+    
+  </div>
 
 <!--Prevent anyone from editing the Post-->
  {% if user == post.author %}
 
-<h1>Edit your Post</h1>
+<h1>Edit: {{ post.title }}</h1>
 <div>
 
     <form method="POST" novalidate>

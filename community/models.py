@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from ckeditor.fields import RichTextField
 
 # Import Cloudinary field for or featured image
 from cloudinary.models import CloudinaryField
@@ -29,7 +30,9 @@ class Post(models.Model):
     # onetomany model for User/author
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_post")
     updated_on = models.DateTimeField(auto_now=True)
-    content = models.TextField()
+    # content = models.TextField()
+    # RichTextField for Content formatting.
+    content = RichTextField(blank=True, null=True)
     featured_image = CloudinaryField("image", default="placeholder")
     created_on = models.DateTimeField(auto_now_add=True)
     excerpt = models.TextField(blank=True)

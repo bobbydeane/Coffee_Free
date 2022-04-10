@@ -23,13 +23,10 @@ a {
   color: dodgerblue;
 }
 
-.backround-color {
-  background-color: #82c8fd;
-}
 
 .cat-font {
   font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
-  font-size: large;
+  font-size: larger;
 }
 
 .display-4 {
@@ -119,4 +116,24 @@ a {
 
 .background-image {
   height: 30vh
+}
+
+
+.post-image {
+  height: 30vh
+}
+
+.heart-button {
+  color: red;
+  border: none;
+  background-color: white;
+  font-size: larger;
+}
+
+.container {
+  min-height:100%;
+}
+.footer {
+  height:100%;
+  margin-top:40px;
 }

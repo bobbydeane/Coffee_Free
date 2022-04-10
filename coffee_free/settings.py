@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     "community",
     "crispy_forms",
     "coffee_free",
+    "ckeditor",
 ]
 
 # 1 site sing 1 db

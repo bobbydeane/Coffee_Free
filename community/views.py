@@ -15,7 +15,7 @@ class PostList(generic.ListView):  # will inherit generic list view
          "category", "-created_on" 
     )  # status =1 filters by published posts / ordered by oldest first
     template_name = "index.html"  # view will render our Html file
-    paginate_by = 10  # introduce page navigation after 10 posts
+    paginate_by = 12  # introduce page navigation after 10 posts
 
 
     # Codemy tutorial - create categories for navbar from Category Model
