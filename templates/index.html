@@ -5,7 +5,7 @@
 
 <main class="container">
   <div class=" row p-4 p-md-5 mb-4 text-white rounded backround-color  bg-dark">
-
+    <!--Header Banner text with Icon-->
     <div class="col-md-8 px-0">
       <h1 class="display-4 fst-italic">Join our community and quit Caffeine today.</h1>
       <p class="lead my-3">Do you want a better nights sleep? Do you often feel anxious? Do you need that cup of Coffee first thing in the morning to function?</p>
@@ -21,6 +21,7 @@
   <div class="row border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative text-black rounded">
 
     <div class="col-md-8 p-4 p-md-4 mb-4">
+      <!--Category Display-->
       <h2>Browse the different topics and Discussions.</h2>
         <p class="lead my-3">All of our posts come from our community. <br> If you are in the need for some Caffeine Free Recipes, browsing for a related News Article, or looking for Inspiration to Quit.</p>
         {% if user.is_authenticated %}
@@ -33,7 +34,7 @@
     <div class="col-md-2 cat-font p-2 p-md-2 mb-2 mt-2">
 
       <ul>
-      
+      <!--Display the list of USer posts-->
         {% for post in post_list %}
         {% ifchanged post.category %}
         <li><a class="text-decoration-none" href="{% url 'category' post.category.id  %}">{{ post.category }}</a></li>

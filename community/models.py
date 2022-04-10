@@ -28,16 +28,19 @@ class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     # onetomany model for User/author
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_post")
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="user_post")
     updated_on = models.DateTimeField(auto_now=True)
     # content = models.TextField()
     # RichTextField for Content formatting.
     content = RichTextField(blank=True, null=True)
+    # Image stored on cloudinary with default placeholder
     featured_image = CloudinaryField("image", default="placeholder")
     created_on = models.DateTimeField(auto_now_add=True)
     excerpt = models.TextField(blank=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    likes = models.ManyToManyField(User, related_name="user_post_likes", blank=True)
+    likes = models.ManyToManyField(
+        User, related_name="user_post_likes", blank=True)
     # foreign key for Category to match the Category model.
     category = models.ForeignKey(
         Category, on_delete=models.CASCADE, null=True, blank=True
@@ -66,13 +69,18 @@ class Post(models.Model):
 
 class Comment(models.Model):
 
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
+    # Delete comments if post is deleted
+    post = models.ForeignKey(
+        Post, on_delete=models.CASCADE, related_name="comments"
+        )
     name = models.CharField(max_length=80)
     email = models.EmailField()
     body = models.TextField()
-    created_on = models.DateTimeField(auto_now_add=True)
+    created_on = models.DateTimeField(
+        auto_now_add=True)
     approved = models.BooleanField(default=False)
-    likes = models.ManyToManyField(User, related_name="user_comments_likes", blank=True)
+    likes = models.ManyToManyField(
+        User, related_name="user_comments_likes", blank=True)
 
     class Meta:
         ordering = ["created_on"]
@@ -80,5 +88,6 @@ class Comment(models.Model):
     def __str__(self):
         return f"Comment {self.body} by {self.name}"
 
+    # count the number of likes
     def number_of_likes(self):
         return self.likes.count()

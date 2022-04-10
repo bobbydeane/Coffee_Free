@@ -12,74 +12,78 @@
     <title>Caffeine Free</title>
 </head>
 <body>
-    <div class="container">
-        <header class="blog-header py-3">
-          <div class="row flex-nowrap justify-content-between align-items-center">
-            <div class="col-4 pt-1">
-              <!-- Allauth user sign in, log out -->
-              {% if user.is_authenticated %}
-              <a class="link-secondary" href="{% url 'account_logout' %}">Log out</output></a>
-              {% else %}
-              <a class="link-secondary" href="{% url 'account_login' %}">Log In</output></a>
+  <div class="container">
+    <header class="blog-header py-3">
+      <div class="row flex-nowrap justify-content-between align-items-center">
 
-              {% endif %}
-            </div>
-            <div class="col-4 text-center">
-              <a class="blog-header-logo text-dark" href="{% url 'home' %}"><h1>Caffeine Free Club</h1></a>
-            </div>
-            <div class="col-4 d-flex justify-content-end align-items-center">
+        <div class="col-4 pt-1">
+          <!-- Allauth user sign in, log out -->
+          {% if user.is_authenticated %}
+          <a class="link-secondary" href="{% url 'account_logout' %}">Log out</output></a>
+          {% else %}
+          <a class="link-secondary" href="{% url 'account_login' %}">Log In</output></a>
+          {% endif %}
+        </div>
+        <!--Site Banner and home link-->
+        <div class="col-4 text-center">
+          <a class="blog-header-logo text-dark" href="{% url 'home' %}"><h1>Caffeine Free Club</h1></a>
+        </div>
+        <!--If logged in, Submit a post-->
+        <div class="col-4 d-flex justify-content-end align-items-center">
+          {% if user.is_authenticated %}
+          <a class="btn btn-sm btn-outline-secondary" href="{% url 'submit' %}">Submit a Post</a>
+          {% else %}
+          <!--If logged out, sign up or log in-->
+          <a class="btn btn-sm btn-outline-secondary" href="{% url 'account_signup' %}">Sign up</a>
+          {% endif %}
+        </div>
+      </div>
+    </header>
+
+
+  {% block content %}
+  <!-- Content Goes here -->
+  {% endblock content %}
             
-              {% if user.is_authenticated %}
-              <a class="btn btn-sm btn-outline-secondary" href="{% url 'submit' %}">Submit a Post</a>
-              {% else %}
-              <a class="btn btn-sm btn-outline-secondary" href="{% url 'account_signup' %}">Sign up</a>
-              {% endif %}
-            </div>
-          </div>
-        </header>
-
-
-            {% block content %}
-            <!-- Content Goes here -->
-            {% endblock content %}
-            
-    
+  
+  </div> 
+  <!--footer inc copyright and social media-->
+  <!--Displays log in/out if user is auth/not-->
   <footer class="blog-footer">
-    <div class="row-1">
-    <div col-4>
-    {% if user.is_authenticated %}
-
-    <p>
-         <a href="{% url 'home' %}">Home</a> | <a href="{% url 'account_logout' %}">Log Out</a>
-
+    <div class="row">
+                
+      <div col-4>
+        {% if user.is_authenticated %}
+        <a href="{% url 'home' %}">Home</a> | <a href="{% url 'account_logout' %}">Log Out</a>
         {% else %}
         <a href="{% url 'home' %}">Home</a> | <a href="{% url 'account_login' %}">Log In</a> | <a href="{% url 'account_signup' %}">Sign Up</a>
         {% endif %}
-        </div>
-        <div col-4>
+      </div>
+            
+      <div col-4>
         <a href="https://facebook.com" target="_blank" rel="noopener"
-        aria-label="Visit our Facebook page (opens in a new tab)"><i class="fab fa-facebook"></i></a>
+          aria-label="Visit our Facebook page (opens in a new tab)"><i class="fab fa-facebook"></i></a>
         <a href="https://twitter.com" target="_blank" rel="noopener"
-        aria-label="Visit our Twitter page (opens in a new tab)"><i class="fab fa-twitter-square"></i></a>
+            aria-label="Visit our Twitter page (opens in a new tab)"><i class="fab fa-twitter-square"></i></a>
         <a href="https://youtube.com" target="_blank" rel="noopener"
-        aria-label="Visit our YouTube page (opens in a new tab)"><i class="fab fa-youtube-square"></i></a>
+          aria-label="Visit our YouTube page (opens in a new tab)"><i class="fab fa-youtube-square"></i></a>
         <a href="https://instagram.com" target="_blank" rel="noopener"
-              aria-label="Visit our Instagram page (opens in a new tab)"><i class="fab fa-instagram"></i></a>        
-      </p>
-    
-      <ul class="social-networks">
-    </div>
+          aria-label="Visit our Instagram page (opens in a new tab)"><i class="fab fa-instagram"></i></a>        
+      </div>
+            
+      <div col-4>
+        <p class="copyright">Copyright &#169; R Deane</p>
+            
+      </div>
+            
   
-    <div col-4>
-      <p class="copyright">Copyright &#169; R Deane</p>
-
     </div>
-
-  </div>  
-  </div>
   </footer>
+
  
 
     
 </body>
+
+
 </html>

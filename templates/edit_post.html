@@ -15,12 +15,12 @@
     
   </div>
 
-<!--Prevent anyone from editing the Post-->
+<!--Prevent anyone unauthorized from editing the Post-->
  {% if user == post.author %}
 
 <h1>Edit: {{ post.title }}</h1>
 <div>
-
+<!--Displays the Post model data to be edited-->
     <form method="POST" novalidate>
         {% csrf_token %}
         

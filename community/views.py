@@ -8,33 +8,33 @@ from django.urls import reverse_lazy
 from django.contrib.auth.models import User
 
 
-
 class PostList(generic.ListView):  # will inherit generic list view
     model = Post
-    queryset = Post.objects.filter(status=1).order_by( #filter by category for nav bar
-         "category", "-created_on" 
+    queryset = Post.objects.filter(status=1).order_by(  
+        # filter by category for nav bar
+        "category", "-created_on"
     )  # status =1 filters by published posts / ordered by oldest first
     template_name = "index.html"  # view will render our Html file
     paginate_by = 12  # introduce page navigation after 10 posts
 
-
     # Codemy tutorial - create categories for navbar from Category Model
     def get_context_data(self, *args, **kwargs):
+
         cat_menu = Category.objects.all()
         context = super(PostList, self).get_context_data(*args, **kwargs)
         context["cat_menu"] = cat_menu
         return context
 
 
-
-
-#Codemy Category tuturial- function to return post.Category
+# Codemy Category tuturial- function to return post.Category
 def CategoryView(request, cats):
     category_posts = Post.objects.filter(category=cats)
-    return render(request, 'categories.html', {'cats':cats, 'category_posts':category_posts})
+    return render(request, 'categories.html', {
+        'cats': cats, 'category_posts': category_posts})
+
 
 class PostDetail(View):
-    def get(self, request, slug, *args, **kwargs):
+    def get(self, request, slug, *args, **kwargs): 
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by("-created_on")
@@ -61,9 +61,9 @@ class PostDetail(View):
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
-
-        comment_form = CommentForm(data=request.POST)  # Gets data from our form
-
+        # Gets data from our form
+        comment_form = CommentForm(data=request.POST)
+        
         if comment_form.is_valid():
             comment_form.instance.email = (
                 request.user.email
@@ -93,6 +93,7 @@ class PostDetail(View):
         )
 
 
+# post like view
 class PostLike(View):
     def post(self, request, slug):
         post = get_object_or_404(Post, slug=slug)  # get our post
@@ -109,21 +110,24 @@ class PostLike(View):
         )  # reload page when we like/unlike post
 
 
+# Submit post view
 class SubmitPost(CreateView):
     model = Post
     form_class = SubmitPostForm
     template_name = "submit.html"
-    # fields = ("title", "author", "category", "content", "excerpt", "featured_image")
 
 
-
+# Edit post View
 class EditPost(UpdateView):
+
     model = Post
     template_name = "edit_post.html"
     fields = ["title", "content", "category", "excerpt"]
 
 
+# Delete post View
 class DeletePost(DeleteView):
+
     model = Post
     template_name = "delete_post.html"
     # return to Homepage after deleting post

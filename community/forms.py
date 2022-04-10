@@ -12,12 +12,23 @@ class CommentForm(forms.ModelForm):
 class SubmitPostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ("title", "author", "category", "content", "excerpt", "featured_image")
+        fields = (
+            "title",
+            "author",
+            "category", "content",
+            "excerpt", "featured_image"
+            )
 
         # widget code taken from Codemy tutorial
         widgets = {
-            'title': forms.TextInput(attrs={'class': 'form-control'}),   # bootstrap styling  for form
-            'author': forms.TextInput(attrs={'class': 'form-control', 'value':'', 'id':'owner', 'type': 'hidden'}),
+            # bootstrap styling  for form
+            'title': forms.TextInput(attrs={'class': 'form-control'}),
+            'author': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'value': '',
+                    'id': 'owner',
+                    'type': 'hidden'}),
             'category': forms.Select(attrs={'class': 'form-control'}),
             'content': forms.Textarea(attrs={'class': 'form-control'}),
             'excerpt': forms.Textarea(attrs={'class': 'form-control'}),

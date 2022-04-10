@@ -2,6 +2,9 @@
 
 {% block content %}
 <main class="container">
+
+<!--Category page displays individual
+Category title and associated posts-->  
 {% if cats == '1' %}
 <h1>Science.</h1>
 
@@ -46,11 +49,9 @@
 
         <div class="row-1">
 
-          <!-- The number of likes goes before the closing strong tag -->
           <strong class="text-secondary"><i class="far fa-heart"></i> {{ post.number_of_likes }} </strong>
           {% with comments.count as total_comments %}
           <strong class="text-secondary"><i class="far fa-comments"></i>
-              <!-- Our total_comments variable goes before the closing strong tag -->
               {{ total_comments }}</strong>
           {% endwith %}
         </div>

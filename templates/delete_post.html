@@ -9,17 +9,16 @@
 <main class="container">
 <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
     <div class="col-md-6 px-0">
-      <h1 class="display-4 fst-italic">Join our community and quit Caffeine today.</h1>
-      <p class="lead my-3">Multiplee lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
-      <p class="lead mb-0"><a href="#" class="text-white fw-bold">Continue reading...</a></p>
+      <h1 class="display-4 fst-italic">Delete Your Post.</h1>
+      <p class="lead my-3">Your Post will be removed from the site once deleted. Dont Worry, you can write another.</p>
     </div>
 </div>
-
+<!--Only Auth users can delete the post-->
 {% if user == post.author %}
 
 <h1>Delete your Post</h1>
 <br/><br/>
-
+<!--Display Post title-->
 <h3>Delete: {{ post.title }}</h3>
 <br>
 <div>
@@ -34,6 +33,8 @@
 </div>
  
 {% else %}
+
+<!--Stops unauth user accessing via URL-->
 
 <h3>Please <a class="link-secondary" href="{% url 'account_login' %}">Log In</output></a> to Delete your post. </h3> 
 
