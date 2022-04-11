@@ -1,108 +1,183 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Caffeine Free Club
 
-Welcome bobbydeane,
+Caffeine Free Club is a website where users come together to be inspired to limit or quit Coffee/Caffeine. The site is built using the Django Framework in python.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+![Site Preview](https://res.cloudinary.com/bobdean/image/upload/v1649661888/RESPONSIVE_vgpbqd.png)
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
 
-## Gitpod Reminders
+Live app link can be found [here](https://coffee-free.herokuapp.com/)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+# User Experience
 
-`python3 -m http.server`
+***
 
-A blue button should appear to click: _Make Public_,
 
-Another blue button should appear to click: _Open Browser_.
+## User Stories
+1. As a Admin I would like to be abel to...
+    1.1 Have an Admin area to the site
+    1.2 Creat draft posts.
+    1.3 Publish Posts, and comments
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+2. A a User I would like to be able to...
+    2.1 Register on the site using my username, email and password.
+    3.2 View all posts on the site
+    4.3 View Comments on the site
+    5.4 View Posts by Category on the site
 
-A blue button should appear to click: _Make Public_,
+1. A a Logged in User I would like to be able to...
+    3.1 Create a Blog Post
+    3.2 Like a Blog Post
+    4.3 Leave Comments on the site
+    5.4 Edit and Delete my Posts
 
-Another blue button should appear to click: _Open Browser_.
+## 1. Strategy
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+ - ### Project Goal
+ Create a site that allows users to get support and motivation to quit Caffeine through the site community and Blog Posts.
 
-To log into the Heroku toolbelt CLI:
+## 2. Scope
+- Simple, functional Blog Site
+- explicit content
+- Site is easily Navigated
+- Appealing on Mobile devices.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+# Functional Scope
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+***
+### Caffeine Free Flow chart
 
-------
+![Flow Chart](https://res.cloudinary.com/bobdean/image/upload/v1649661887/flow_chart_jode9d.png)
 
-## Release History
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+### Caffeine Free Diagram Entity Relationship
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+![DER](https://res.cloudinary.com/bobdean/image/upload/v1649661887/Schema_kpxtou.png)
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+### Agile Methodology
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+All development and functioanlity of this project were managed using [Github](https://github.com/bobbydeane/Coffee_Free/projects/1).
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+## 3. Structure
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+- The site has a simple layout to ensure intuitive navigation.
+- Forms are straightfoward an easy to understand
+- Edit, update and delete forms are easy to use
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+## 4. Skeleten
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+This site was created with Balsamic wireframes and took the style from a Bootstrap template.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+### Homepage
+![Homepage](https://res.cloudinary.com/bobdean/image/upload/v1649661888/Hompage_ya7kzm.png)
+### Index
+![Index](https://res.cloudinary.com/bobdean/image/upload/v1649661888/Edit_dpo6f0.png)
+### Categories
+![Categories](https://res.cloudinary.com/bobdean/image/upload/v1649661888/Categories_h0y4zi.png)
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+### Edit
+![Edit](https://res.cloudinary.com/bobdean/image/upload/v1649661888/Edit_dpo6f0.png)
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+## 5. Surface
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+The Blog is a stripped down version of a Bootstrap [Blog](https://getbootstrap.com/docs/4.0/examples/blog/) template.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+# Existing Features
 
-------
+***
 
-## FAQ about the uptime script
+Login and Register User buttons are present on the navbar if the user is not logged.
+Logout and Submit a Post buttons are present if the user is logged.
+The Logged in User can also Edit/ and Delete their post.
 
-**Why have you added this script?**
+![Home](https://res.cloudinary.com/bobdean/image/upload/v1649661888/Home_ww877z.png)
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+The Home page list the posts via Category and Creation date so user can browse for a post to read or comment on.
 
-**How will this affect me?**
+![Index](https://res.cloudinary.com/bobdean/image/upload/v1649661888/indexmain_edsx6l.png)
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+The User can click on a blog post from the list and open the blog. The post will be displayed and the logged in USer can comment or like the post. The post will display likes and comments.
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+![Blog](https://res.cloudinary.com/bobdean/image/upload/v1649661887/Blog_o3adwv.png)
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+If the user has submited a Post, they will then be able to retrieve and edit the post via a form.
 
-**So….?**
+![Edit](https://res.cloudinary.com/bobdean/image/upload/v1649661887/Editpost_rsjs0v.png)
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
 
-**Can I opt out?**
+# Future Features
+***
+I would like to 
+    1. Create a User profile page, so that users can display bio and profile pic.
+    2. Add an API to automatically pull relevant news stories to the site.
+    3. Let users Upvote and downvote Posts/Comments.
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+# Languages Used
+***
+Python 3.0
+HTML
+CSS
+JS
+Django Frameworks
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+# Frameworks, Libraries & Programmes Used
+***
+- GitHub: GitHub is used to store the project's code after being pushed from Git.
+- Django: Framework used to add structure to the platform.
+- Gitpod: was used as a CLI/Code editor.
+- Balsamiq: used to create the wireframes during the design process.
+- Lucidchart: used to create Database schema diagram and flow chart diagram.
+- Font Awesome: Used to add icons to the Blog posts.
 
-**Anything more?**
+# Testing and Code validation
+***
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+## Automated Tests
+***
+Automated tests were carried out using Djangos testing functionality.
+The tests looked at the Python files in the App to validate the code. The Coverage repost can be found int he htmlcov folder in the app.
+![Tests](https://res.cloudinary.com/bobdean/image/upload/v1649661888/Coverage_iqryub.png)
 
----
+Other Functionality tests  were carried out by the User:
+    -test that forms display as expected
+    -form submission reacts with Models as expected
+    - Test that unathorised user cannot edit/delete a post.
+    -Test that unathorised user cannot comment/like a post.
+    
+Html Tests using - https://validator.w3.org/nu/
+CSS testing - https://jigsaw.w3.org/css-validator/
+Python Testing - http://www.pep8online.com/
 
-Happy coding!
+# Credits
+***
+
+## Media
+***
+ - All Images were found on Google images.
+
+## Work based on other Code
+***
+[Codemy](https://www.youtube.com/channel/UCFB0dxMudkws1q8w5NJEAmw) was used as a guide to develop CRUD functionality for Blog Posts
+Stack Overflow was valuable in troubleshoiting many issues.
+
+[Bootstrap Templates](https://getbootstrap.com/docs/4.0/examples/blog/) and documentation was used for the HTML and styling of the majority of the site.
+
+[Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/) was used for many of the forms on the site.
+
+[Summernote](https://github.com/summernote/django-summernote) was used to style the admin site and forms 
+
+## Acknowledgements
+***
+
+- Codemy for getting me through some tricky code implementation
+- Code Institute Slack Community for the support and time
+- Stackoverflow for the lifeline when i'm struggling
+
+I would also like to thank:
+- Rahul, my mentor. For keeping me within my project scope and boosting morale.
+- Code Institute for this opporuntity.
+- Caragh & Ban.
+
+
+

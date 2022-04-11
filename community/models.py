@@ -31,7 +31,7 @@ class Post(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="user_post")
     updated_on = models.DateTimeField(auto_now=True)
-    # content = models.TextField()
+
     # RichTextField for Content formatting.
     content = RichTextField(blank=True, null=True)
     # Image stored on cloudinary with default placeholder

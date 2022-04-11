@@ -63,7 +63,7 @@ class PostDetail(View):
             liked = True
         # Gets data from our form
         comment_form = CommentForm(data=request.POST)
-
+        
         if comment_form.is_valid():
             comment_form.instance.email = (
                 request.user.email
