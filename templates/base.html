@@ -11,17 +11,17 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <title>Caffeine Free</title>
 </head>
-<body>
-  <div class="container">
+<body class="d-flex flex-column">
+  <div class="container page-content">
     <header class="blog-header py-3">
       <div class="row flex-nowrap justify-content-between align-items-center">
 
         <div class="col-4 pt-1">
           <!-- Allauth user sign in, log out -->
           {% if user.is_authenticated %}
-          <a class="link-secondary" href="{% url 'account_logout' %}">Log out</output></a>
+          <a class="link-secondary" href="{% url 'account_logout' %}">Log out</a>
           {% else %}
-          <a class="link-secondary" href="{% url 'account_login' %}">Log In</output></a>
+          <a class="link-secondary" href="{% url 'account_login' %}">Log In</a>
           {% endif %}
         </div>
         <!--Site Banner and home link-->
@@ -49,10 +49,11 @@
   </div> 
   <!--footer inc copyright and social media-->
   <!--Displays log in/out if user is auth/not-->
-  <footer class="blog-footer">
-    <div class="row">
-                
-      <div col-4>
+
+
+  <div class="card text-center">
+    <div class="flex-shrink-0 py-4" id="sticky-footer">
+      <div>
         {% if user.is_authenticated %}
         <a href="{% url 'home' %}">Home</a> | <a href="{% url 'account_logout' %}">Log Out</a>
         {% else %}
@@ -60,7 +61,7 @@
         {% endif %}
       </div>
             
-      <div col-4>
+      <div>
         <a href="https://facebook.com" target="_blank" rel="noopener"
           aria-label="Visit our Facebook page (opens in a new tab)"><i class="fab fa-facebook"></i></a>
         <a href="https://twitter.com" target="_blank" rel="noopener"
@@ -71,14 +72,13 @@
           aria-label="Visit our Instagram page (opens in a new tab)"><i class="fab fa-instagram"></i></a>        
       </div>
             
-      <div col-4>
+      <div>
         <p class="copyright">Copyright &#169; R Deane</p>
             
       </div>
-            
-  
     </div>
-  </footer>
+
+  </div>
 
  
 
